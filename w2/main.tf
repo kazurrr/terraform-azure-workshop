@@ -1,3 +1,10 @@
+provider "azurerm" {
+  client_id       = "3820ac58-709a-4b40-aad8-8d5357b18fd6"
+  client_secret   = ""
+  tenant_id       = "7b8f13dd-eb5f-4f9a-a941-1a9471c8b985"
+  subscription_id = "7ea86c73-51c0-464b-ac07-53533a3adfda"
+}
+
 variable "prefix" {
   type        = "string"
   description = "Pierwsza litera imienia i nazwisko pisane łącznie."

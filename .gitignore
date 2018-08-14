@@ -27,3 +27,6 @@ crash.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+### Workshops ###
+**/*-finished.tf

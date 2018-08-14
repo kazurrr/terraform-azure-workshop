@@ -1,20 +1,19 @@
-<!-- $theme: default -->
 
-# Terraform and Azure
-###### Karol Masuhr
+# Wprowadzenie do Terraform z wykorzystaniem platformy Azure
 
----
+##### Karol Masuhr
 
-### Agenda
-
-1. Wymagania
-2. Wprowadzenie do Azure Cloud
-3. Stworzenie własnego serwisu (rg + app_service) z portalu Azure
-4. Piękne zadania
+###### #terraform #azure #serverless #awesomeness #rkś
 
 ---
 
-### Wymagane oprogramowanie:
+### Po co to?
+
+Celem szkolenia jest poznanie narzędzia **Terraform** na przykładzie tworzenia środowiska serverless w Azure.
+
+---
+
+### Wymagania:
 
 * **terraform** - https://www.terraform.io/intro/getting-started/install.html
 * **azure cli** - https://docs.microsoft.com/pl-pl/cli/azure/install-azure-cli?view=azure-cli-latest
@@ -32,11 +31,23 @@
 
 ---
 
-### App Service
+### Co to jest ten Function App
+
+---
+
+### Co to jest ten Terraform
+
+https://www.terraform.io/docs/providers/azurerm/
 
 ---
 
 ### Workshop #1
+
+<!--
+`terraform init`
+`terraform plan`
+`terraform apply`
+-->
 
 ###### Cel
 
@@ -83,6 +94,6 @@ Deployment appki *Hello world* w nodeJS przy pomocy **Azure CLI** i **Terraform*
 
 ###### Azure CLI
 
-`az functionapp deployment source config-zip --src 'function-app-hello-world.zip' --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME`
-
 ![Meme2](https://mariusbancila.ro/blog/wp-content/uploads/2017/10/nodeazure.jpg)
+
+`az functionapp deployment source config-zip --src 'function-app-hello-world.zip' --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME`

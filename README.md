@@ -92,8 +92,8 @@ Stworzyć **Function App** przy użyciu narzędzia terraform. Zadanie zostaje za
 
 Deployment appki *Hello world* w nodeJS przy pomocy **Azure CLI** i **Terraform**
 
-###### Azure CLI
-
 ![Meme2](https://mariusbancila.ro/blog/wp-content/uploads/2017/10/nodeazure.jpg)
+
+###### Azure CLI
 
 `az functionapp deployment source config-zip --src 'function-app-hello-world.zip' --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME`

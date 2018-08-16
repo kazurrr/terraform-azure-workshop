@@ -27,11 +27,11 @@ Celem szkolenia jest poznanie narzędzia **Terraform** na przykładzie tworzenia
 
 #### TODO
 
+<!-- 
+* Function App
+-->
+
 ![There is no cloud](https://tr1.cbsistatic.com/hub/i/2016/05/09/ede8a826-e9b0-49e4-a196-fc0e2c72f561/7e6a8dbffea824c9cf3d8b45a66fb13f/49nocloud.jpg)
-
----
-
-### Co to jest ten Function App
 
 ---
 
@@ -47,9 +47,9 @@ https://www.terraform.io/docs/providers/azurerm/
 
 http://portal.azure.com
 
-| Username       | Password |
-| -------------- | -------- |
-| spam@masuhr.pl | ToDo     |
+| Username       | Password          |
+| -------------- | ----------------- |
+| spam@masuhr.pl | Spójrz na tablicę |
 
 ###### Azure CLI login
 
@@ -123,6 +123,13 @@ resource "null_resource" "helloworld_function" {
   }
 }
 ```
+---
+
+### Linki
+
+https://chmurowisko.pl/serwisy-microsoft-azure/
+https://www.terraform.io/docs/configuration/index.html
+https://www.terraform.io/docs/providers/azurerm/index.html
 
 ---
 

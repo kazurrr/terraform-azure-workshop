@@ -41,6 +41,23 @@ https://www.terraform.io/docs/providers/azurerm/
 
 ---
 
+### Preparation
+
+###### Azure Portal signin
+
+http://portal.azure.com
+
+| Username       | Password |
+| -------------- | -------- |
+| spam@masuhr.pl | ToDo     |
+
+###### Azure CLI login
+
+1. `az login`
+2. Wybranie konta w otwartym oknie przeglądarki
+
+---
+
 ### Workshop #1
 
 <!--
@@ -57,13 +74,6 @@ https://www.terraform.io/docs/providers/azurerm/
 	* output
 2. Parametryzacja pierwszej infrastruktury - dodanie prefixu do nazwu **Resource groupy**, prefix powinien być podawany jako **input variable**.
 3. Wypisanie na konsolę nazwy stworzonej **Resource groupy**
-
----
-
-### Zasady
-
-1. Wszystkie zasoby utworzone muszą mieć nazwę autora w nazwie (np. `kmasuhr-workshop-rg`).
-2. Po każdym zadaniu niszczymy stworzoną infrastrukturę: `terraform destroy`.
 
 ---
 
@@ -97,3 +107,24 @@ Deployment appki *Hello world* w nodeJS przy pomocy **Azure CLI** i **Terraform*
 ###### Azure CLI
 
 `az functionapp deployment source config-zip --src 'function-app-hello-world.zip' --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME`
+
+---
+
+### Workshop #3
+
+###### Terraform
+
+Użycie polecenia **Azure CLI** wewnątrz Terraforma. Do tego celu użujemy `null_resource`.
+
+```
+resource "null_resource" "helloworld_function" {
+  provisioner "local-exec" {
+    command = "az functionapp deployment...
+  }
+}
+```
+
+---
+
+# Koniec
+### ToDo mem na koniec

@@ -40,6 +40,17 @@ resource "azurerm_function_app" "workshop" {
   storage_connection_string = "${azurerm_storage_account.test.primary_connection_string}"
 }
 
-output "function_url" {
+
+resource "null_resource" "nodejs_function" {
+  provisioner "local-exec" {
+    command = "az functionapp deployment source config-zip --src 'function-app-hello-world.zip' --resource-group ${azurerm_resource_group.test.name} --name ${azurerm_function_app.test.name}"
+  }
+}
+
+output "function_app_url" {
   value = "https://${azurerm_function_app.test.default_hostname}"
+}
+
+output "function_url" {
+  value = "https://${azurerm_function_app.test.default_hostname}/api/function-app-hello-world"
 }

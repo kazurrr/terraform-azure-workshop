@@ -10,9 +10,9 @@ variable "location" {
 
 resource "azurerm_resource_group" "workshop" {
   name     = "${var.prefix}-workshop-rg"
-  location = "${location}"
+  location = "${var.location}"
 }
 
 output "resource_group_name" {
-  value = "${azurerm_resource_group.infrastructure.name}"
+  value = "${azurerm_resource_group.workshop.name}"
 }

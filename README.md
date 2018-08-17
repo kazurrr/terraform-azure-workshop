@@ -125,6 +125,20 @@ resource "null_resource" "helloworld_function" {
 ```
 ---
 
+### Workshop #4
+
+###### Cel - modularyzacja
+
+1. Wydzielenie z głównego pliku elementów odpowiedzialnych za **zamienne (variables)** i **wyjścia (outputs)**
+
+![part_1](.img/part_1.png)
+
+2. Stworzenie modułu `function-app` zawierającego: `azurerm_storage_account` `azurerm_app_service_plan` oraz `azurerm_function_app`
+
+![alt text](.img/part_2.png "Title")
+
+---
+
 ### Linki
 
 https://chmurowisko.pl/serwisy-microsoft-azure/

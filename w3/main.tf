@@ -38,8 +38,11 @@ resource "azurerm_function_app" "workshop" {
   resource_group_name       = "${azurerm_resource_group.workshop.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.workshop.id}"
   storage_connection_string = "${azurerm_storage_account.workshop.primary_connection_string}"
-}
 
+  app_settings {
+    "NAME" = "${var.prefix}"
+  }
+}
 
 resource "null_resource" "nodejs_function" {
   provisioner "local-exec" {

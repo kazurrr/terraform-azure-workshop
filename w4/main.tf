@@ -13,6 +13,6 @@ module "function_app" {
 
 resource "null_resource" "nodejs_function" {
   provisioner "local-exec" {
-    command = "az functionapp deployment source config-zip --src '../function-app/function-app-hello-world.zip' --resource-group ${azurerm_resource_group.workshop.name} --name ${azurerm_function_app.workshop.name}"
+    command = "az functionapp deployment source config-zip --src '../function-app/function-app-hello-world.zip' --resource-group ${azurerm_resource_group.workshop.name} --name ${module.function_app.function_app_name}"
   }
 }

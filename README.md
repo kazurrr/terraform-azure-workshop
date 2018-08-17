@@ -142,7 +142,9 @@ resource "null_resource" "helloworld_function" {
 ### Linki
 
 https://chmurowisko.pl/serwisy-microsoft-azure/
+
 https://www.terraform.io/docs/configuration/index.html
+
 https://www.terraform.io/docs/providers/azurerm/index.html
 
 ---

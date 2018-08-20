@@ -15,27 +15,40 @@ Celem szkolenia jest poznanie narzędzia **Terraform** na przykładzie tworzenia
 
 ### Wymagania:
 
-* **terraform** - https://www.terraform.io/intro/getting-started/install.html
-* **azure cli** - https://docs.microsoft.com/pl-pl/cli/azure/install-azure-cli?view=azure-cli-latest
-* **vscode** - https://code.visualstudio.com/
-* Wtyczka do vscode **vscode-terraform** - https://marketplace.visualstudio.com/items?itemName=mauve.terraform
+* Komputer
+* RDP client 
 * Znajomość **memów** na poziomie podstawowym
 
 ---
 
 ### Co to jest ten Ażur?
 
-#### TODO
+### Myślisz sobie przecież wiem, chmura to wirtualne maszyny.
 
-<!-- 
-* Function App
--->
+---
+
+![NOPE](https://zakazanydlugopis.pl/wp-content/uploads/2018/03/nic-bardziej-mylnego.jpg)
+
+---
+
+### Co to jest ten Ażur?
+
+Azure (i inni dostawcy) poza wirtualnymi maszynami udostępniają nam wiele innch usług takich jak Serverless Application, Databases, Virtual Networks i wiele innych.
+
+Polecam zapoznać sie w wolnym czasie z linkiem poniżej. 
+
+https://chmurowisko.pl/serwisy-microsoft-azure/
 
 ![There is no cloud](https://tr1.cbsistatic.com/hub/i/2016/05/09/ede8a826-e9b0-49e4-a196-fc0e2c72f561/7e6a8dbffea824c9cf3d8b45a66fb13f/49nocloud.jpg)
 
 ---
 
 ### Co to jest ten Terraform
+
+> Hashicorp Terraform to narzędzie typu open source do obsługi i zarządzania infrastruktury w chmurze.
+
+Lista zasobów dostepnych w ramach **Azure**.
+Warto mieć tę stronę pod ręką, przyda się podczas warsztatów.
 
 https://www.terraform.io/docs/providers/azurerm/
 
@@ -53,18 +66,16 @@ http://portal.azure.com
 
 ###### Azure CLI login
 
-1. `az login`
-2. Wybranie konta w otwartym oknie przeglądarki
+1. Uruchom komendę w terminalu `az login`
+2. Potwierdź logowanie w nowo uruchomionym oknie przeglądarki
+
+###### Clone repository
+
+https://bitbucket.pgs-soft.com/scm/dog/terraform-azure-workshop.git
 
 ---
 
 ### Workshop #1
-
-<!--
-`terraform init`
-`terraform plan`
-`terraform apply`
--->
 
 ###### Cel
 
@@ -72,8 +83,45 @@ http://portal.azure.com
 	* variable
 	* resource
 	* output
-2. Parametryzacja pierwszej infrastruktury - dodanie prefixu do nazwu **Resource groupy**, prefix powinien być podawany jako **input variable**.
-3. Wypisanie na konsolę nazwy stworzonej **Resource groupy**
+2. Zapoznanie się z podstawowymi komendami
+3. Parametryzacja pierwszej infrastruktury - dodanie prefixu do nazwu **Resource groupy**, prefix powinien być podawany jako **input variable**.
+4. Wypisanie na konsolę nazwy stworzonej **Resource groupy**
+
+---
+
+### Workshop #1
+
+### Podstawowe komendy
+
+1. `terraform init` - pobranie bibliotek koniecznych do komunikacji z dostawcą usług
+4. `terraform plan`
+5. `terraform apply`
+6. `terraform destroy`
+
+---
+
+### Workshop #1
+
+```
+variable "prefix" {
+  type        = "string"
+  description = "Pierwsza litera imienia i nazwisko pisane łącznie."
+}
+
+variable "location" {
+  type    = "string"
+  default = "westus"
+}
+
+resource "azurerm_resource_group" "workshop" {
+  name     = "${var.prefix}-workshop-rg"
+  location = "${var.location}"
+}
+
+output "resource_group_name" {
+  value = "${azurerm_resource_group.workshop.name}"
+}
+```
 
 ---
 
@@ -112,6 +160,12 @@ Deployment appki *Hello world* w nodeJS przy pomocy **Azure CLI** i **Terraform*
 
 ### Workshop #3
 
+###### Provisioners
+
+Używane są do wykonywania skryptów lokalnie bądź na zdalnej maszynie.
+
+https://www.terraform.io/docs/provisioners/index.html
+
 ###### Terraform
 
 Użycie polecenia **Azure CLI** wewnątrz Terraforma. Do tego celu użujemy `null_resource`.
@@ -139,6 +193,24 @@ resource "null_resource" "helloworld_function" {
 
 ---
 
+```
+module "function_app" {
+  source = "./function-app"
+
+  prefix              = "${var.prefix}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.workshop.name}"
+}
+```
+
+* `module` - slowo kluczowe
+* pierwsze ciapki - nazwa naszego modułu
+* `source` - lokalizacja modułu
+* podobnie jak w przypadku `resource` podajemu parametry
+
+
+---
+
 ### Linki
 
 https://chmurowisko.pl/serwisy-microsoft-azure/
@@ -150,4 +222,4 @@ https://www.terraform.io/docs/providers/azurerm/index.html
 ---
 
 # Koniec
-### ToDo mem na koniec
+![Cat meme](https://i.pinimg.com/originals/b9/0a/79/b90a79b4c361d079144597d0bcdd61de.jpg)

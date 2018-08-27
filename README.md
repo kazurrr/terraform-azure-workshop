@@ -7,17 +7,16 @@
 
 ---
 
-### Po co to?
+### Wymagania:
 
-Celem szkolenia jest poznanie narzędzia **Terraform** na przykładzie tworzenia środowiska serverless w Azure.
+* Azure CLI
+* Terraform
+* IDE z pluginem do Terraforma (Intellij, VSCode) 
+* Znajomość **memów** na poziomie podstawowym
 
 ---
 
-### Wymagania:
-
-* Komputer
-* RDP client 
-* Znajomość **memów** na poziomie podstawowym
+### Co to jest ten Ażur?
 
 ---
 
@@ -48,7 +47,6 @@ https://chmurowisko.pl/serwisy-microsoft-azure/
 > Hashicorp Terraform to narzędzie typu open source do obsługi i zarządzania infrastruktury w chmurze.
 
 Lista zasobów dostepnych w ramach **Azure**.
-Warto mieć tę stronę pod ręką, przyda się podczas warsztatów.
 
 https://www.terraform.io/docs/providers/azurerm/
 
@@ -56,22 +54,17 @@ https://www.terraform.io/docs/providers/azurerm/
 
 ### Preparation
 
-###### Azure Portal signin
+# https://bit.ly/2NndP9d
+
+###### Azure Portal login
 
 http://portal.azure.com
 
-| Username       | Password          |
-| -------------- | ----------------- |
-| spam@masuhr.pl | Spójrz na tablicę |
 
 ###### Azure CLI login
 
 1. Uruchom komendę w terminalu `az login`
 2. Potwierdź logowanie w nowo uruchomionym oknie przeglądarki
-
-###### Clone repository
-
-https://bitbucket.pgs-soft.com/scm/dog/terraform-azure-workshop.git
 
 ---
 

@@ -1,18 +1,18 @@
-variable "prefix" {
-  type        = "string"
+variable prefix {
+  type        = string
   description = "Pierwsza litera imienia i nazwisko pisane łącznie."
 }
 
-variable "location" {
-  type    = "string"
+variable location {
+  type    = string
   default = "westus"
 }
 
-resource "azurerm_resource_group" "workshop" {
+resource azurerm_resource_group workshop {
   name     = "${var.prefix}-workshop-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
-output "resource_group_name" {
-  value = "${azurerm_resource_group.workshop.name}"
+output resource_group_name {
+  value = azurerm_resource_group.workshop.name
 }
